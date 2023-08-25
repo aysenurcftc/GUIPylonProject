@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MIF35Oos8pTsL9gmDkXe3y22b9nY3vZmxV6pOL01BTJgwDtxed22G5X1lugQPC8aLSgFzoDMXxkDn0E05ezpDA==",
+  "dgSpecHash": "oZOJE0OQWIDGkaQ1S1h2xjgWwmXgof1NEohK3t6Tnp9UVfn0aF+agPzoDySpz+JvL+C4xXZ+KTjgHzlCicATsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\myProject\\myPylonProject\\myPylonProject\\myPylonProject.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

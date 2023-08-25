@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:myPylonProject" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        mc:Ignorable="d" Background="#333333"
-        Title="MainWindow" Height="530" Width="500">
+        mc:Ignorable="d" Background="White" 
+        Title="MainWindow" Height="570" Width="600">
 
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
@@ -15,86 +15,104 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="320"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+           
         </Grid.RowDefinitions>
 
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="0"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Image Source="C:\Users\Lenovo\Desktop\myProject\myPylonProject\myPylonProject\UIElement\icon\icon.png" 
+                   Margin="0 5 410 0" Width="80" Height="30"/>
             <Button x:Name="Minimize" Content="_" Background="Transparent" BorderBrush="Transparent"
-                    Width="40" Height="40" Foreground="White" Click="Minimize_Click"/>
-            <Button x:Name="btnMaximize" Content="□" Foreground="White" Background="Transparent" BorderBrush="Transparent"
+                    Width="40" Height="40" Foreground="#222831" Click="Minimize_Click"/>
+            <Button x:Name="btnMaximize" Content="□" Foreground="#222831" Background="Transparent" BorderBrush="Transparent"
                     Width="40" Height="40" Click="btnMaximize_Click"/>
-            <Button x:Name="btnClose" Content="X" Foreground="White" Background="Transparent" BorderBrush="Transparent"
+            <Button x:Name="btnClose" Content="X" Foreground="#222831" Background="Transparent" BorderBrush="Transparent"
                     Width="40" Height="40" Click="btnClose_Click"/>
-
+ 
         </StackPanel>
 
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Width="450" Height="200" x:Name="image"/>
-        </StackPanel>
+        <Border Grid.Row="1" BorderBrush="#222831" BorderThickness="2" Margin="10 5 10 5">
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
+                <Image x:Name="image" Margin="10 5 10 5" />
+
+            </StackPanel>
+        </Border>
+
+      
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="center">
-            <Button x:Name="singleShot" Width="150" Height="30" Content="Single Shot" Background="Transparent"
-                    BorderBrush="White" Foreground="White" Click="singleShot_Click" Margin="5 0 5 0"/>
+            
+            <Button x:Name="singleShot" Width="100" Height="25" Content="Single Shot" Background="Transparent"
+                    BorderBrush="#222831" Foreground="#222831" Click="singleShot_Click" Margin="10 0 10 0"/>
+            
+            <Button x:Name="saveGrab" Content="Save Single Shot" Width="100" Height="25" Background="Transparent"
+                    BorderBrush="#222831" Foreground="#222831" Click="saveGrab_Click"/>
 
-            <Button x:Name="continiousShot" Width="150" Height="30" Content="Continious Shot" Background="Transparent" BorderBrush="White"
-                   Foreground="White" Click="continiousShot_Click"/>
+            <Button x:Name="continiousShot" Width="100" Height="25" Content="Continious Shot" Background="Transparent" BorderBrush="#222831"
+                   Foreground="#222831" Click="continiousShot_Click" Margin="10 0 10 0"/>
 
-            <Button x:Name="stop" Width="150" Height="30" Background="Transparent" Foreground="White" Content="Stop" BorderBrush="White"
-                    Click="stop_Click" Margin="5 0 5 0"/>
-        </StackPanel>
+            <Button x:Name="stop" Width="100" Height="25" Background="Transparent" Foreground="#222831" Content="Stop" BorderBrush="#222831"
+                    Click="stop_Click"/>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Width="100" Height="30" Content="Select Image" Foreground="White" HorizontalAlignment="Right" />
-            <ComboBox x:Name="selectImage" Width="220" Height="20" Background="Transparent" BorderBrush="White"/>
+          
+
         </StackPanel>
 
         
-        <StackPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Width="100" Height="30" Content="Pixel Format" Foreground="White" HorizontalAlignment="Right" />
-            <ComboBox x:Name="selectformat" Width="220" Height="20" Background="Transparent" BorderBrush="White"/>
+
+        
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label Width="100" Height="30" Content="Pixel Format" Foreground="#222831" HorizontalAlignment="Right" />
+            <ComboBox IsEditable="True" x:Name="selectformat" SelectedItem="BayerBG8" Width="220" Height="20"
+                      Background="Transparent" BorderBrush="#222831" SelectionChanged="selectformat_SelectionChanged">
+                <ComboBoxItem Content="BayerBG8"/>
+                <ComboBoxItem Content="BayerRG8"/>
+                <ComboBoxItem Content="BayerGR8"/>
+                <ComboBoxItem Content="BayerGB8"/>
+                <ComboBoxItem Content="Mono8"/>
+            </ComboBox>
         </StackPanel>
         
 
-        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Name="exposureAuto" Content="Exposure Auto" Width="100" Height="30" Foreground="White"/>
-            <ComboBox x:Name="exposueAuto" Width="220" Height="20"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label  Content="Gain Auto" Width="100" Height="30" Foreground="#222831" />
+            <ComboBox IsEditable="True" x:Name="gainAuto" Width="220" Height="20" SelectedItem="Off" BorderBrush="#222831"
+                      SelectionChanged="gainAuto_SelectionChanged">
+                <ComboBoxItem Name="On" Content="On"/>
+                <ComboBoxItem Name="Off" Content="Off"/>
+            </ComboBox>
         </StackPanel>
-    
+
+
+        <StackPanel Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label Content="Gain [dB]" Width="100" Height="30" Foreground="#222831" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="gaintxt" Width="60" Height="25" Text="0"/>
+            <Slider x:Name="gain" Width="220" IsEnabled="False"  Maximum="36" Minimum="0" Value="10"  ValueChanged="gain_ValueChanged"/>
+        </StackPanel>
 
         <StackPanel Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Content="Exposure Time" Width="100" Height="30" Foreground="White" HorizontalAlignment="Right"/>
-            <Slider x:Name="exposure" Width="220"/>
-           
+            <Label Content="Exposure Time" Width="100" Height="30" Foreground="#222831" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="exposuretxt" Width="60" Height="25" Text="0"/>
+            <Slider x:Name="exposure" Width="220" Maximum="9999992" Minimum="8" Value="6500" ValueChanged="exposure_ValueChanged"/>
         </StackPanel>
-
-     
 
         <StackPanel Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <Label Content="Gain" Width="100" Height="30" Foreground="White" HorizontalAlignment="Right"/>
-            <Slider x:Name="gain" Width="220" />
+            <Label Content="Gamma" Width="100" Height="30" Foreground="#222831" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="gammatxt" Width="60" Height="25" Text="0"/>
+            <Slider x:Name="gamma" Width="220" Height="30" Maximum="3.99" Minimum="0" Value="1" ValueChanged="gamma_ValueChanged"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button x:Name="close" Content="Close" Width="220" Height="25" Background="Transparent"
-                    BorderBrush="White" Foreground="White" Margin="10 0 10 0"/>
-            <Button x:Name="saveGrab" Content="Save Grab" Width="220" Height="25" Background="Transparent"
-                    BorderBrush="White" Foreground="White"/>
-        </StackPanel>
-        
-        
-        
-    
+       
 
+        
     </Grid>
 </Window>
