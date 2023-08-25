@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:myPylonProject" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         mc:Ignorable="d" Background="White" 
-        Title="MainWindow" Height="570" Width="600">
+        Title="MainWindow" Height="610" Width="600">
 
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
@@ -23,7 +23,8 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
-           
+            <RowDefinition Height="35"/>
+
         </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -33,6 +34,7 @@
                     Width="40" Height="40" Foreground="#222831" Click="Minimize_Click"/>
             <Button x:Name="btnMaximize" Content="□" Foreground="#222831" Background="Transparent" BorderBrush="Transparent"
                     Width="40" Height="40" Click="btnMaximize_Click"/>
+
             <Button x:Name="btnClose" Content="X" Foreground="#222831" Background="Transparent" BorderBrush="Transparent"
                     Width="40" Height="40" Click="btnClose_Click"/>
  
@@ -60,23 +62,26 @@
             <Button x:Name="continiousShot" Width="100" Height="25" Content="Continious Shot" Background="Transparent" BorderBrush="#222831"
                    Foreground="#222831" Click="continiousShot_Click" Margin="10 0 10 0"/>
 
+            
             <Button x:Name="stop" Width="100" Height="25" Background="Transparent" Foreground="#222831" Content="Stop" BorderBrush="#222831"
                     Click="stop_Click"/>
 
+           
           
+
+            
+
 
         </StackPanel>
 
         
-
         
         <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Width="100" Height="30" Content="Pixel Format" Foreground="#222831" HorizontalAlignment="Right" />
-            <ComboBox IsEditable="True" x:Name="selectformat" SelectedItem="BayerBG8" Width="220" Height="20"
-                      Background="Transparent" BorderBrush="#222831" SelectionChanged="selectformat_SelectionChanged">
+            <ComboBox IsEditable="True" x:Name="selectformat" SelectedItem="BayerRG8" Width="220" Height="20"
+                      Background="Transparent" BorderBrush="#222831" SelectionChanged="selectformat_SelectionChanged" >
                 <ComboBoxItem Content="BayerBG8"/>
                 <ComboBoxItem Content="BayerRG8"/>
-                <ComboBoxItem Content="BayerGR8"/>
                 <ComboBoxItem Content="BayerGB8"/>
                 <ComboBoxItem Content="Mono8"/>
             </ComboBox>
@@ -111,6 +116,12 @@
             <Slider x:Name="gamma" Width="220" Height="30" Maximum="3.99" Minimum="0" Value="1" ValueChanged="gamma_ValueChanged"/>
         </StackPanel>
 
+        <StackPanel Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Label Content="Black Level [DN]" Width="100" Height="30" Foreground="#222831" HorizontalAlignment="Right" />
+            <TextBlock x:Name="blackleveltxt" Width="60" Height="25" Text="0"/>
+            <Slider x:Name="blacklevel" Width="220" Height="30" Maximum="30" Minimum="1" Value="1"/>
+
+        </StackPanel>
        
 
         

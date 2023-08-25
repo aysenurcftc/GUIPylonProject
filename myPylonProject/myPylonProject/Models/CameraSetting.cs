@@ -12,8 +12,9 @@ namespace myPylonProject.Models
         public double Gain { get; set; }
         public double Gamma { get; set; }
         public string PixelFormat { get; set; }
-
        
+       public double BlackLevel { get; set; }
+
 
     }
 }

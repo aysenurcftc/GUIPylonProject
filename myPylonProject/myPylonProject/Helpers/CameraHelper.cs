@@ -1,7 +1,9 @@
 ﻿using Basler.Pylon;
 using myPylonProject.Models;
 using System;
-
+using System.Security.Cryptography.Pkcs;
+using System.Windows.Media.Media3D;
+using Camera = Basler.Pylon.Camera;
 
 namespace myPylonProject.Helpers
 {
@@ -17,6 +19,7 @@ namespace myPylonProject.Helpers
             }
             catch(Exception ex)
             {
+
             }
         }
 
@@ -27,15 +30,13 @@ namespace myPylonProject.Helpers
             camera?.Parameters[PLCamera.ExposureTime].TrySetValue(cameraSetting.ExposureTime);
             camera?.Parameters[PLCamera.Gamma].TrySetValue(cameraSetting.Gamma);
             camera?.Parameters[PLCamera.PixelFormat].SetValue(cameraSetting.PixelFormat);
+            camera?.Parameters[PLCamera.BlackLevel].SetValue(cameraSetting.BlackLevel);
+
 
         }
 
-        
 
-
-
-
-
+    
 
 
 

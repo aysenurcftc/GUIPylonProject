@@ -8,7 +8,7 @@ using System.Windows;
 using myPylonProject.Helpers;
 using System.Windows.Controls;
 using myPylonProject.Models;
-using Camera = Basler.Pylon.Camera;
+
 
 namespace myPylonProject
 {
@@ -42,6 +42,7 @@ namespace myPylonProject
                     camera.Open();
 
                     cameraHelper.SetCameraStartupSettings(camera, cameraSetting);
+
                    
                     // Start grabbing.
                     camera.StreamGrabber.Start();
@@ -197,9 +198,76 @@ namespace myPylonProject
             Gain = gain.Value,
             ExposureTime = exposure.Value,
             Gamma = gamma.Value,
+            BlackLevel = blacklevel.Value,
             PixelFormat = ((ComboBoxItem)selectformat.SelectedItem).Content.ToString(),  
             
+            
         };
+
+
+
+        private void SetSlidersEnableAndDisableSettings()
+        {
+
+            if (gainAuto.Items.Count > 0)
+            {
+                ComboBoxItem? item = gainAuto.SelectedItem as ComboBoxItem;
+
+                if (gain is not null)
+                {
+                    if (item?.Name != "Off")
+                    {
+                        gain.IsEnabled = false;
+                    
+                    }
+
+                    else
+                    {
+                        gain.IsEnabled = true;
+                       
+                       
+
+                    }
+                }
+            }
+
+        }
+
+
+        private void txtboxGain()
+        {
+            if (gain is not null)
+            {
+                gaintxt.Text = gain.Value.ToString("0.##");
+            }
+        }
+
+
+        private void txtExposureTime()
+        {
+            if (exposure is not null)
+            {
+                double exposureValue = exposure.Value;
+                double c = Math.Round(exposureValue, 1);
+                exposuretxt.Text = c.ToString();
+            }
+        }
+
+
+        private void txtGamma()
+        {
+            if (gamma is not null)
+            {
+                gammatxt.Text = gamma.Value.ToString("0.##");
+            }
+        }
+
+
+        
+
+
+
+
 
 
 
@@ -257,65 +325,7 @@ namespace myPylonProject
             SaveGrabImage(GetChangeableCameraSettings());
         }
 
-    
-        private void SetSlidersEnableAndDisableSettings()
-        {
 
-            if (gainAuto.Items.Count > 0)
-            {
-                ComboBoxItem? item = gainAuto.SelectedItem as ComboBoxItem;
-
-                if (gain is not null)
-                {
-                    if (item?.Name != "Off")
-                    {
-                        gain.IsEnabled = false;
-                        exposure.IsEnabled = false;
-                        gamma.IsEnabled = false;
-                    }
-
-                    else
-                    {
-                        gain.IsEnabled = true;
-                        exposure.IsEnabled = true;
-                        gamma.IsEnabled = true;
-
-
-
-                    }
-                }
-            }
-
-        }
-
-        private void txtboxGain()
-        {
-           if(gain is not null)
-            {
-                 gaintxt.Text = gain.Value.ToString("0.##");
-            }
-        }
-
-
-        private void txtExposureTime()
-        {
-            if(exposure is not null)
-            {
-                double exposureValue = exposure.Value;
-                double c = Math.Round(exposureValue, 1);
-                exposuretxt.Text = c.ToString();
-            }
-        }
-    
-
-        private void txtGamma()
-        {
-            if(gamma is not null)
-            {
-                gammatxt.Text = gamma.Value.ToString("0.##");
-            }
-        }
-      
         private void gainAuto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SetSlidersEnableAndDisableSettings();
@@ -340,5 +350,11 @@ namespace myPylonProject
         {
             txtGamma();
         }
+
+        
+
+
+
+
     }
 }
