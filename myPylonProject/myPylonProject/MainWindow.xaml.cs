@@ -262,6 +262,14 @@ namespace myPylonProject
             }
         }
 
+        private void txtBlackLevel()
+        {
+            if(blacklevel is not null)
+            {
+                blackleveltxt.Text = blacklevel.Value.ToString("0.##");
+            }
+        }
+
 
         
 
@@ -351,10 +359,9 @@ namespace myPylonProject
             txtGamma();
         }
 
-        
-
-
-
-
+        private void blacklevel_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            txtBlackLevel();
+        }
     }
 }

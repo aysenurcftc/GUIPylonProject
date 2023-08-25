@@ -119,7 +119,7 @@
         <StackPanel Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <Label Content="Black Level [DN]" Width="100" Height="30" Foreground="#222831" HorizontalAlignment="Right" />
             <TextBlock x:Name="blackleveltxt" Width="60" Height="25" Text="0"/>
-            <Slider x:Name="blacklevel" Width="220" Height="30" Maximum="30" Minimum="1" Value="1"/>
+            <Slider x:Name="blacklevel" Width="220" Height="30" Maximum="30" Minimum="1" Value="1" ValueChanged="blacklevel_ValueChanged"/>
 
         </StackPanel>
        
